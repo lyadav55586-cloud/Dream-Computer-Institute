@@ -5,14 +5,63 @@
 <title>Dream Computer Institute</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
+
+<style>
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero img {
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.institute-img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.marquee {
+  background: #004aad;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.animate {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
+
 <body>
 
-<header>
+<!-- ===== MARQUEE ===== -->
+<div class="marquee">
+  <marquee>
+    Admission Open | Dream Computer Institute | Quality Computer Education | Certificate Provided
+  </marquee>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="animate">
   <h1>Dream Computer Institute</h1>
-  <p>Build Your Digital Future With Us</p>
+  <p>Computer Education & Skill Development Center</p>
 </header>
 
+<!-- ===== NAVBAR ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="admission.html">Admission</a>
@@ -21,22 +70,65 @@
   <a href="hindi.html">हिंदी</a>
 </nav>
 
-<section>
-  <h2>Welcome</h2>
-  <p>We provide quality computer education with practical knowledge.</p>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero animate">
+  <div>
+    <h2>Welcome to Dream Computer Institute</h2>
+    <p>
+      Dream Computer Institute is a trusted computer education center
+      providing practical and job-oriented computer courses.
+    </p>
+  </div>
 
-  <h3>Our Courses</h3>
+  <div>
+    <!-- DIRECTOR PHOTO -->
+    <img src="l.jpeg" alt="Rahul Yadav Photo">
+  </div>
+</section>
+
+<!-- ===== DIRECTOR INFO ===== -->
+<section class="animate">
+  <h2>Institute Director</h2>
+  <p><strong>Name:</strong> Rahul Yadav</p>
+  <p><strong>Mobile:</strong> 7905971243</p>
+</section>
+
+<!-- ===== INSTITUTE PHOTO ===== -->
+<section class="animate">
+  <h2>Our Institute</h2>
+  <p>Our modern computer lab and learning environment</p>
+
+  <!-- INSTITUTE PHOTO -->
+  <img src="l.jpeg" alt="Dream Computer Institute" class="institute-img">
+</section>
+<!-- INSTITUTE PHOTO -->
+  <img src="j.jpeg" alt="Dream Computer Institute" class="institute-img">
+</section>
+<!-- ===== COURSES ===== -->
+<section class="animate">
+  <h2>Our Courses</h2>
   <ul>
-    <li>DCA</li>
-    <li>ADCA</li>
+    <li>DCA (Diploma in Computer Application)</li>
+    <li>ADCA (Advanced Diploma in Computer Application)</li>
+    <li>Basic Computer Course</li>
+    <li>MS Office</li>
     <li>Tally with GST</li>
     <li>Typing (Hindi / English)</li>
-    <li>MS Office</li>
+    <li>Internet & Email</li>
+    <li>Computer Hardware Basics</li>
   </ul>
 </section>
 
+<!-- ===== ADDRESS ===== -->
+<section class="animate">
+  <h2>Contact & Address</h2>
+  <p><strong>Address:</strong> Bishkohar Road, Gainsari, Balrampur</p>
+  <p><strong>Mobile:</strong> 7905971243</p>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-  <p>© 2026 Dream Computer Institute</p>
+  <p>© 2026 Dream Computer Institute | All Rights Reserved</p>
 </footer>
 
 </body>

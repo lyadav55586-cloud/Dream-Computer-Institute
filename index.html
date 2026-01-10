@@ -2,123 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dream Computer Institute</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI', sans-serif;
-}
-
 body{
-  background:#eef2f7;
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:#f1f5f9;
 }
 
 /* HEADER */
 header{
-  background:linear-gradient(135deg,#1a2aff,#00c6ff);
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
-  padding:40px 20px;
+  padding:30px 15px;
+  text-align:center;
+  animation:slideDown 1s ease;
+}
+header h1{margin:0;font-size:32px;}
+header p{margin-top:8px;opacity:0.9;}
+
+/* NAVBAR */
+nav{
+  background:#020617;
+  padding:12px;
   text-align:center;
 }
-
-/* TOP BUTTON */
-.top-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 30px;
-  background:white;
-  color:#1a2aff;
+nav a{
+  color:white;
+  margin:0 12px;
   text-decoration:none;
+  font-weight:600;
+}
+nav a:hover{color:#38bdf8;}
+
+/* HERO */
+.hero{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  padding:30px;
+  animation:fadeUp 1.2s ease;
+}
+.hero-text{max-width:520px;}
+.hero-text h2{color:#0f172a;}
+.hero-text p{color:#334155;}
+
+/* BUTTONS */
+.btn{
+  padding:12px 22px;
+  border:none;
   border-radius:30px;
+  cursor:pointer;
   font-weight:bold;
+  margin:12px 10px 0 0;
+  transition:0.3s;
+}
+.btn1{background:#2563eb;color:white;}
+.btn2{background:#22c55e;color:white;}
+.btn:hover{transform:scale(1.08);}
+
+/* PHOTOS */
+.round-photo{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:4px solid #2563eb;
+  object-fit:cover;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.institute-photo{
+  width:100%;
+  max-width:520px;
+  border-radius:16px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.25);
+  margin-top:15px;
 }
 
 /* NOTICE BOARD */
 .notice{
-  max-width:1000px;
-  margin:-40px auto 30px;
-  background:white;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
-  overflow:hidden;
-}
-
-.notice h2{
-  background:#ff3c3c;
-  color:white;
-  padding:12px;
-  text-align:center;
-}
-
-.notice .img-placeholder{
-  height:200px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-  font-weight:bold;
-  background:#ddd;
-}
-
-.notice p{
+  background:#fde047;
+  margin:20px;
   padding:15px;
-  text-align:center;
+  border-radius:14px;
+  box-shadow:0 8px 15px rgba(0,0,0,0.2);
+  animation:fadeUp 1.2s ease;
 }
+.notice h2{margin-top:0;}
 
-/* COURSES */
-.section-title{
-  text-align:center;
-  margin:40px 0 20px;
-  font-size:26px;
-  color:#1a2aff;
-}
-
-.courses{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-  padding:20px;
-  max-width:1100px;
-  margin:auto;
-}
-
+/* CARD */
 .card{
   background:white;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  overflow:hidden;
-  text-align:center;
+  margin:20px;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 12px 25px rgba(0,0,0,0.12);
+  animation:fadeUp 1.2s ease;
 }
 
-.card .img-placeholder{
-  height:180px;
-  background:#ccc;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:bold;
-}
-
-.card h3{
-  margin:15px 0 5px;
-}
-
-.card p{
-  margin-bottom:15px;
-  color:gray;
-}
+/* COURSE LIST */
+ul{padding-left:20px;}
+ul li{margin:6px 0;}
 
 /* FOOTER */
 footer{
-  background:#1a2aff;
+  background:#020617;
   color:white;
   text-align:center;
   padding:15px;
+  margin-top:20px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-30px);}
+  to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -127,49 +131,68 @@ footer{
 
 <header>
   <h1>Dream Computer Institute</h1>
-  <p>Learn Today • Build Tomorrow</p>
-  <a href="#courses" class="top-btn">Explore Courses</a>
+  <p>Modern Computer Education & Skill Development Center</p>
 </header>
 
-<!-- NOTICE BOARD -->
-<div class="notice">
-  <h2>📢 SUCHNA BOARD</h2>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="admission.html">Admission</a>
+  <a href="certificate.html">Certificate</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="hindi.html">हिंदी</a>
+</nav>
 
-  <!-- IMAGE PLACE -->
-  <div class="img-placeholder">ll.jpg</div>
+<section class="hero">
+  <div class="hero-text">
+    <h2>Welcome to Dream Computer Institute</h2>
+    <p>
+      Dream Computer Institute provides quality computer education with
+      practical training and certification for a better future.
+    </p>
 
+    <button class="btn btn1">Online Admission</button>
+    <button class="btn btn2">Pre Complete Course</button>
+  </div>
+
+  <div>
+    <!-- Director Photo -->
+    <img src="rahul.jpg" class="round-photo" alt="Rahul Yadav">
+  </div>
+</section>
+
+<section class="notice">
+  <h2>📢 Suchna Board</h2>
+  <marquee>
+    Admission Open | Free Demo Class Available | Certificate Provided |
+    Limited Seats | Contact: 7905971243
+  </marquee>
+</section>
+
+<section class="card">
+  <h2>Our Institute</h2>
+  <img src="institute.jpg" class="institute-photo">
   <p>
-    New batches starting soon <br>
-    Admission open – limited seats!
+    <strong>Director:</strong> Rahul Yadav<br>
+    <strong>Mobile:</strong> 7905971243<br>
+    <strong>Address:</strong> Bishkohar Road, Gainsari, Balrampur
   </p>
-</div>
+</section>
 
-<h2 class="section-title" id="courses">Our Courses</h2>
-
-<div class="courses">
-
-  <div class="card">
-    <div class="img-placeholder">ll.jpg</div>
-    <h3>DCA</h3>
-    <p>6 Months Course</p>
-  </div>
-
-  <div class="card">
-    <div class="img-placeholder">ll.jpg</div>
-    <h3>ADCA</h3>
-    <p>12 Months Course</p>
-  </div>
-
-  <div class="card">
-    <div class="img-placeholder">ll.jpg</div>
-    <h3>Tally</h3>
-    <p>3 Months Course</p>
-  </div>
-
-</div>
+<section class="card">
+  <h2>Courses Offered</h2>
+  <ul>
+    <li>DCA</li>
+    <li>ADCA</li>
+    <li>Basic Computer</li>
+    <li>MS Office</li>
+    <li>Tally with GST</li>
+    <li>Typing (Hindi / English)</li>
+    <li>Internet & Email</li>
+  </ul>
+</section>
 
 <footer>
-  © 2026 Dream Computer Institute
+  © 2026 Dream Computer Institute | All Rights Reserved
 </footer>
 
 </body>

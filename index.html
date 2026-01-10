@@ -18,7 +18,6 @@ header{
   color:white;
   padding:30px 15px;
   text-align:center;
-  animation:slideDown 1s ease;
 }
 header h1{margin:0;font-size:32px;}
 header p{margin-top:8px;opacity:0.9;}
@@ -44,24 +43,22 @@ nav a:hover{color:#38bdf8;}
   justify-content:space-between;
   align-items:center;
   padding:30px;
-  animation:fadeUp 1.2s ease;
 }
 .hero-text{max-width:520px;}
-.hero-text h2{color:#0f172a;}
-.hero-text p{color:#334155;}
 
 /* BUTTONS */
 .btn{
+  display:inline-block;
   padding:12px 22px;
-  border:none;
   border-radius:30px;
-  cursor:pointer;
   font-weight:bold;
   margin:12px 10px 0 0;
+  text-decoration:none;
+  color:white;
   transition:0.3s;
 }
-.btn1{background:#2563eb;color:white;}
-.btn2{background:#22c55e;color:white;}
+.btn1{background:#2563eb;}
+.btn2{background:#22c55e;}
 .btn:hover{transform:scale(1.08);}
 
 /* PHOTOS */
@@ -87,9 +84,8 @@ nav a:hover{color:#38bdf8;}
   margin:20px;
   padding:15px;
   border-radius:14px;
-  box-shadow:0 8px 15px rgba(0,0,0,0.2);
-  animation:fadeUp 1.2s ease;
 }
+.notice a{text-decoration:none;color:black;}
 .notice h2{margin-top:0;}
 
 /* CARD */
@@ -99,12 +95,7 @@ nav a:hover{color:#38bdf8;}
   padding:22px;
   border-radius:18px;
   box-shadow:0 12px 25px rgba(0,0,0,0.12);
-  animation:fadeUp 1.2s ease;
 }
-
-/* COURSE LIST */
-ul{padding-left:20px;}
-ul li{margin:6px 0;}
 
 /* FOOTER */
 footer{
@@ -113,16 +104,6 @@ footer{
   text-align:center;
   padding:15px;
   margin-top:20px;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
-}
-@keyframes slideDown{
-  from{opacity:0;transform:translateY(-30px);}
-  to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -142,35 +123,41 @@ footer{
   <a href="hindi.html">हिंदी</a>
 </nav>
 
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-text">
     <h2>Welcome to Dream Computer Institute</h2>
     <p>
-      Dream Computer Institute provides quality computer education with
-      practical training and certification for a better future.
+      Dream Computer Institute provides quality computer education
+      with practical training and certification.
     </p>
 
-    <button class="btn btn1">Online Admission</button>
-    <button class="btn btn2">Pre Complete Course</button>
+    <!-- BUTTON LINKS -->
+    <a href="admission.html" class="btn btn1">Online Admission</a>
+    <a href="course.html" class="btn btn2">Pre Complete Course</a>
   </div>
 
   <div>
     <!-- Director Photo -->
-    <img src="rahul.jpg" class="round-photo" alt="Rahul Yadav">
+    <img src="666666" class="round-photo" alt="Director Photo">
   </div>
 </section>
 
+<!-- SUCHNA BOARD -->
 <section class="notice">
   <h2>📢 Suchna Board</h2>
-  <marquee>
-    Admission Open | Free Demo Class Available | Certificate Provided |
-    Limited Seats | Contact: 7905971243
-  </marquee>
+  <a href="notice.html">
+    <marquee>
+      Admission Open | Free Demo Class | Certificate Provided |
+      Click Here for More Information
+    </marquee>
+  </a>
 </section>
 
+<!-- INSTITUTE INFO -->
 <section class="card">
   <h2>Our Institute</h2>
-  <img src="institute.jpg" class="institute-photo">
+  <img src="666666" class="institute-photo" alt="Institute Photo">
   <p>
     <strong>Director:</strong> Rahul Yadav<br>
     <strong>Mobile:</strong> 7905971243<br>
@@ -178,6 +165,7 @@ footer{
   </p>
 </section>
 
+<!-- COURSES -->
 <section class="card">
   <h2>Courses Offered</h2>
   <ul>
@@ -194,6 +182,7 @@ footer{
 <footer>
   © 2026 Dream Computer Institute | All Rights Reserved
 </footer>
+  <script src="script.js"></script>
 
 </body>
 </html>

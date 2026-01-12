@@ -1,35 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Online Admission</title>
-<link rel="stylesheet" href="style.css">
+<title>Online Admission | Dream Computer Institute</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  font-family:Arial, sans-serif;
+  background:#f1f5f9;
+  padding:20px;
+}
+.container{
+  max-width:500px;
+  background:white;
+  margin:auto;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+h2{text-align:center;}
+input, textarea, button{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  background:#2563eb;
+  color:white;
+  font-size:16px;
+  border:none;
+  cursor:pointer;
+}
+button:hover{background:#1e40af;}
+.qr-box{
+  text-align:center;
+  background:#fef3c7;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+.qr-box img{
+  width:220px;
+  border-radius:12px;
+}
+.note{
+  color:red;
+  font-size:14px;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>Online Admission Form</h1>
-</header>
+<div class="container">
 
-<section>
-<form class="form">
-  <input type="text" placeholder="Student Name" required>
-  <input type="text" placeholder="Father Name" required>
-  <input type="number" placeholder="Mobile Number" required>
+<h2>Online Admission Form</h2>
 
-  <select required>
-    <option>Select Course</option>
-    <option>DCA</option>
-    <option>ADCA</option>
-    <option>Tally</option>
-    <option>Typing</option>
-  </select>
+<div class="qr-box">
+  <h3>Pay Admission Fees</h3>
+  <img src="upi-qr.png" alt="UPI QR Code">
+  <p><b>UPI ID:</b> rahulyadav79123@okicici</p>
+  <p>Scan & Pay using any UPI App</p>
+</div>
 
-  <textarea placeholder="Address"></textarea>
+<form action="https://formsubmit.co/rahulyadav79123@gmail.com" method="POST">
 
-  <button type="submit">Submit</button>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
+<input type="text" name="Student Name" placeholder="Student Name" required>
+
+<input type="number" name="Mobile Number" placeholder="Mobile Number" required>
+
+<input type="email" name="Email" placeholder="Email Address" required>
+
+<input type="text" name="Course Name" placeholder="Course Name" required>
+
+<input type="text" name="UPI Transaction ID" placeholder="UPI Transaction ID" required>
+
+<textarea name="Address" placeholder="Full Address" required></textarea>
+
+<p class="note">
+* Admission fees once paid is non-refundable  
+<br>* Pay first, then fill Transaction ID
+</p>
+
+<button type="submit">Submit Admission</button>
+
 </form>
-</section>
+
+</div>
 
 </body>
 </html>

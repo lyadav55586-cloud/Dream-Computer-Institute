@@ -5,30 +5,31 @@
 <title>Online Admission | Dream Computer Institute</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- jsPDF CDN (PDF ke liye MUST) -->
+<!-- jsPDF CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<link rel="stylesheet" href="">
 
 <style>
 body{
-  font-family:'Segoe UI', sans-serif;
-  background:#f1f5f9;
   margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 header{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
-  padding:20px;
   text-align:center;
+  padding:20px;
 }
 .form-box{
-  max-width:420px;
   background:white;
-  margin:25px auto;
+  max-width:460px;
+  margin:20px auto;
   padding:25px;
-  border-radius:18px;
-  box-shadow:0 12px 25px rgba(0,0,0,0.15);
+  border-radius:20px;
+  box-shadow:0 15px 30px rgba(0,0,0,.3);
 }
-input, select, button{
+input,select,button{
   width:100%;
   padding:12px;
   margin-top:10px;
@@ -44,7 +45,6 @@ button{
 }
 button:disabled{
   background:#94a3b8;
-  cursor:not-allowed;
 }
 #paymentBox{
   display:none;
@@ -53,33 +53,25 @@ button:disabled{
 }
 #paymentBox img{
   width:220px;
-  border-radius:12px;
   margin:10px 0;
 }
-.note{
-  background:#e0f2fe;
-  padding:10px;
-  border-radius:10px;
-  font-size:14px;
-  margin-top:10px;
-}
-.fees{
-  color:#dc2626;
-  font-size:18px;
-  font-weight:bold;
-  margin-top:10px;
-}
-.check{
-  margin-top:10px;
+.captcha{
+  margin-top:15px;
   text-align:left;
-  font-size:14px;
 }
-footer{
+.captcha span{
+  display:inline-block;
   background:#020617;
   color:white;
+  padding:8px 14px;
+  border-radius:8px;
+  letter-spacing:3px;
+  font-weight:bold;
+}
+footer{
+  color:white;
   text-align:center;
-  padding:12px;
-  margin-top:20px;
+  padding:15px;
 }
 </style>
 </head>
@@ -87,126 +79,80 @@ footer{
 <body>
 
 <header>
-  <h2>Online Admission Form</h2>
+  <h2>Online Admission</h2>
   <p>Dream Computer Institute</p>
 </header>
 
 <div class="form-box">
 
 <form id="admissionForm"
-      action="https://formsubmit.co/rahulyadav79123@gmail.com"
-      method="POST"
-      onsubmit="generateSlip()">
+action="https://formsubmit.co/rahulyadav79123@gmail.com"
+method="POST"
+onsubmit="return finalSubmit()">
 
-  <!-- FormSubmit settings -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New Admission (₹500 Paid)">
-  <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
 
-  <!-- STUDENT DETAILS -->
-  <input type="text" id="name" name="Student Name" placeholder="Student Name" required>
-  <input type="text" id="father" name="Father Name" placeholder="Father Name" required>
-  <input type="text" id="mobile" name="Mobile Number" placeholder="Mobile Number" required>
+<input type="text" id="name" name="Student Name" placeholder="Student Name" required>
+<input type="text" id="father" name="Father Name" placeholder="Father Name" required>
+<input type="text" id="mobile" name="Mobile Number" placeholder="Mobile Number" required>
 
-  <select id="course" name="Course" required>
-    <option value="">Select Course</option>
-    <option>DCA</option>
-    <option>ADCA</option>
-    <option>Basic Computer</option>
-    <option>MS Office</option>
-    <option>Tally with GST</option>
-    <option>Typing</option>
-  </select>
+<select id="course" name="Course" required>
+<option value="">Select Course</option>
+<option>DCA</option>
+<option>ADCA</option>
+<option>Basic Computer</option>
+<option>MS Office</option>
+<option>Tally with GST</option>
+<option>Typing (Hindi / English)</option>
+<option>CCC</option>
+<option>O Level</option>
+<option>Internet & Email</option>
+</select>
 
-  <!-- FIRST BUTTON -->
-  <button type="button" onclick="showPayment()">Submit & Pay Fees</button>
+<button type="button" onclick="startPayment()">
+Submit & Pay Fees
+</button>
 
-  <!-- PAYMENT SECTION -->
-  <div id="paymentBox">
-    <h3>💳 Admission Fees Payment</h3>
-    <div class="fees">Admission Fees: ₹500 Only</div>
+<!-- PAYMENT BOX -->
+<div id="paymentBox">
 
-    <!-- QR IMAGE (yahin QR ka naam dalna) -->
-    <img src="666666" alt="UPI QR Code">
+<h3>Admission Fees: ₹500</h3>
 
-    <div class="note">
-      QR scan karke ₹500 payment kare.<br>
-      Payment ke baad Transaction ID bhare.
-    </div>
+<!-- 🔴 QR IMAGE PATH -->
+<img src="images/upi-qr.png" alt="UPI QR">
 
-    <input type="text" id="txn" name="Transaction ID"
-           placeholder="Transaction ID" oninput="checkPayment()" required>
+<p>Mobile user: UPI app auto open<br>
+Laptop user: QR scan kare</p>
 
-    <div class="check">
-      <input type="checkbox" id="paid" onclick="checkPayment()">
-      I confirm ₹500 payment done
-    </div>
+<input type="text" id="txn" name="Transaction ID"
+placeholder="Transaction ID" oninput="checkAll()">
 
-    <!-- FINAL SUBMIT -->
-    <button type="submit" id="finalBtn" disabled>
-      Final Submit & Download Admission Slip (PDF)
-    </button>
-  </div>
+<label>
+<input type="checkbox" id="paid" onclick="checkAll()">
+ I have paid ₹500
+</label>
 
+<!-- CAPTCHA -->
+<div class="captcha">
+<p>Security Check</p>
+<span id="captchaText"></span>
+<button type="button" onclick="generateCaptcha()">↻</button>
+<input type="text" id="captchaInput"
+placeholder="Enter captcha" oninput="checkAll()">
+</div>
+
+<button type="submit" id="finalBtn" disabled>
+Final Submit & Download Slip
+</button>
+
+</div>
 </form>
 </div>
 
 <footer>
-  © 2026 Dream Computer Institute | All Rights Reserved
+© 2026 Dream Computer Institute
 </footer>
 
-<!-- JAVASCRIPT (PAYMENT + PDF) -->
-<script>
-function showPayment(){
-  const box = document.getElementById("paymentBox");
-  box.style.display = "block";
-  box.scrollIntoView({behavior:"smooth"});
-}
-
-function checkPayment(){
-  const txn = document.getElementById("txn").value.trim();
-  const paid = document.getElementById("paid").checked;
-  document.getElementById("finalBtn").disabled = !(txn && paid);
-}
-
-function generateSlip(){
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-
-  const name = document.getElementById("name").value;
-  const father = document.getElementById("father").value;
-  const mobile = document.getElementById("mobile").value;
-  const course = document.getElementById("course").value;
-  const txn = document.getElementById("txn").value;
-  const date = new Date().toLocaleDateString();
-
-  doc.setFontSize(16);
-  doc.text("Dream Computer Institute", 20, 20);
-
-  doc.setFontSize(12);
-  doc.text("OFFICIAL ADMISSION SLIP", 20, 30);
-
-  doc.setFontSize(11);
-  doc.text("Student Name : " + name, 20, 45);
-  doc.text("Father Name  : " + father, 20, 55);
-  doc.text("Mobile No.   : " + mobile, 20, 65);
-  doc.text("Course       : " + course, 20, 75);
-  doc.text("Fees Paid    : ₹500", 20, 85);
-  doc.text("Transaction ID: " + txn, 20, 95);
-  doc.text("Date         : " + date, 20, 105);
-
-  doc.text("Payment Status : PAID", 20, 120);
-
-  doc.setFontSize(10);
-  doc.text("Bring this slip to institute for verification.", 20, 135);
-  doc.text("Address: Bishkohar Road, Gainsari, Balrampur", 20, 145);
-
-  doc.save("Admission_Slip_Dream_Computer_Institute.pdf");
-}
-</script>
-  <script src="admission.js"></script>
-
+<script src="admission.js"></script>
 </body>
 </html>
-
-

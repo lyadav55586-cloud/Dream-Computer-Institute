@@ -1,97 +1,110 @@
-// 🔴 EDIT HERE
-const UPI_ID = "rahulyadav@upi"; // apni UPI ID
-const WHATSAPP_API_KEY = "YOUR_API_KEY"; // CallMeBot key
-const ADMIN_PHONE = "917905971243";
+/******** FIREBASE CONFIG ********/
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_KEY",
+  authDomain: "PASTE.firebaseapp.com",
+  databaseURL: "https://PASTE.firebaseio.com",
+  projectId: "PASTE",
+  storageBucket: "PASTE.appspot.com",
+  messagingSenderId: "PASTE",
+  appId: "PASTE"
+};
 
-let currentCaptcha = "";
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-// detect mobile
-function isMobile(){
-  return /Android|iPhone/i.test(navigator.userAgent);
-}
-
-// start payment
-function startPayment(){
-  const name = document.getElementById("name").value;
-  const course = document.getElementById("course").value;
-
-  if(name === "" || course === ""){
-    alert("Please fill form first");
-    return;
-  }
-
+/******** PAYMENT ********/
+function showPayment(){
   document.getElementById("paymentBox").style.display="block";
 
-  if(isMobile()){
-    const upiURL =
-`upi://pay?pa=${UPI_ID}&pn=Dream Computer Institute&am=500&cu=INR&tn=Admission Fees`;
-    window.location.href = upiURL;
+  const upi =
+   "upi://pay?pa=rahulyadav79123@okicici&pn=Dream%20Computer&am=500&cu=INR";
+  window.location.href = upi;
+}
+
+function checkPayment(){
+  const txn = document.getElementById("txn").value.trim();
+  const paid = document.getElementById("paid").checked;
+  document.getElementById("finalBtn").disabled = !(txn.length >= 6 && paid);
+}
+
+/******** FINAL SUBMIT ********/
+function handleFinalSubmit(e){
+  e.preventDefault();
+
+  const txn = document.getElementById("txn").value.trim();
+  const paid = document.getElementById("paid").checked;
+
+  if(!txn || !paid){
+    alert("Payment required!");
+    return false;
   }
+
+  saveFirebase();
+  generateSlip();
+  successPopup();
+  whatsappSend();
+
+  setTimeout(()=>{
+    document.getElementById("admissionForm").submit();
+  },1500);
+
+  return false;
 }
 
-// captcha
-function generateCaptcha(){
-  const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let cap="";
-  for(let i=0;i<5;i++){
-    cap+=chars[Math.floor(Math.random()*chars.length)];
-  }
-  currentCaptcha=cap;
-  document.getElementById("captchaText").innerText=cap;
-  document.getElementById("captchaInput").value="";
-}
-window.onload=generateCaptcha;
+/******** SAVE TO FIREBASE ********/
+function saveFirebase(){
+  const data = {
+    name: name.value,
+    father: father.value,
+    mobile: mobile.value,
+    email: email.value,
+    course: course.value,
+    txn: txn.value,
+    time: new Date().toLocaleString()
+  };
 
-// check enable submit
-function checkAll(){
-  const txn=document.getElementById("txn").value.trim();
-  const paid=document.getElementById("paid").checked;
-  const cap=document.getElementById("captchaInput").value.trim();
-
-  document.getElementById("finalBtn").disabled =
-    !(txn && paid && cap===currentCaptcha);
+  db.ref("admissions").push(data);
 }
 
-// final submit
-function finalSubmit(){
-  sendWhatsApp();
-  generatePDF();
-  return true;
-}
-
-// whatsapp
-function sendWhatsApp(){
-  const n=name.value;
-  const m=mobile.value;
-  const c=course.value;
-  const t=txn.value;
-
-  const msg=`NEW ADMISSION
-Name: ${n}
-Mobile: ${m}
-Course: ${c}
-Fees: ₹500
-Txn: ${t}`;
-
-  fetch(
-`https://api.callmebot.com/whatsapp.php?phone=${ADMIN_PHONE}&text=${encodeURIComponent(msg)}&apikey=${WHATSAPP_API_KEY}`
-  );
-}
-
-// pdf
-function generatePDF(){
-  const {jsPDF}=window.jspdf;
-  const doc=new jsPDF();
+/******** PDF ********/
+function generateSlip(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
   doc.text("Dream Computer Institute",20,20);
-  doc.text("ADMISSION SLIP",20,30);
-
+  doc.text("Admission Slip",20,30);
   doc.text("Name: "+name.value,20,45);
-  doc.text("Father: "+father.value,20,55);
-  doc.text("Mobile: "+mobile.value,20,65);
-  doc.text("Course: "+course.value,20,75);
-  doc.text("Fees: ₹500 PAID",20,85);
-  doc.text("Txn ID: "+txn.value,20,95);
+  doc.text("Mobile: "+mobile.value,20,55);
+  doc.text("Course: "+course.value,20,65);
+  doc.text("Fees: ₹500 PAID",20,75);
+  doc.text("Txn ID: "+txn.value,20,85);
 
   doc.save("Admission_Slip.pdf");
+}
+
+/******** SUCCESS ********/
+function successPopup(){
+  const d=document.createElement("div");
+  d.id="successPopup";
+  d.innerHTML=`<div class="popup-box">
+  <h3>✅ Admission Successful</h3>
+  <p>Slip Downloaded</p></div>`;
+  document.body.appendChild(d);
+  d.style.display="flex";
+
+  setTimeout(()=>location.href="index.html",3000);
+}
+
+/******** WHATSAPP ********/
+function whatsappSend(){
+  const msg =
+`New Admission
+Name: ${name.value}
+Mobile: ${mobile.value}
+Course: ${course.value}
+Txn: ${txn.value}`;
+
+  const url =
+`https://wa.me/917905971243?text=${encodeURIComponent(msg)}`;
+  window.open(url,"_blank");
 }

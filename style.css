@@ -1,74 +1,54 @@
+/* ===== GLOBAL ===== */
+*{
+  box-sizing:border-box;
+}
 body{
-  font-family: Arial, sans-serif;
   margin:0;
-  background:#f4f4f4;
+  font-family:'Segoe UI', sans-serif;
+  background:#f1f5f9;
+  color:#020617;
 }
 
+/* ===== HEADER ===== */
 header{
-  background:#004aad;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  padding:35px 15px;
+  text-align:center;
   color:white;
-  text-align:center;
-  padding:20px;
 }
 
+/* 3D LOGO */
+.logo{
+  font-size:40px;
+  font-weight:900;
+  color:#38bdf8;
+  letter-spacing:1px;
+  text-shadow:
+    1px 1px 0 #020617,
+    2px 2px 0 #020617,
+    3px 3px 0 #020617,
+    4px 4px 8px rgba(0,0,0,0.6);
+}
+header p{
+  margin-top:8px;
+  opacity:0.9;
+  font-size:15px;
+}
+
+/* ===== NAVBAR ===== */
 nav{
-  background:#222;
+  background:#020617;
+  padding:12px;
   text-align:center;
 }
-
 nav a{
   color:white;
-  padding:10px 15px;
-  display:inline-block;
+  margin:0 12px;
   text-decoration:none;
+  font-weight:600;
 }
-
 nav a:hover{
-  background:#004aad;
+  color:#38bdf8;
 }
 
-section{
-  background:white;
-  margin:15px;
-  padding:20px;
-  border-radius:8px;
-}
-
-footer{
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:10px;
-}
-
-/* Form */
-.form{
-  max-width:400px;
-  margin:auto;
-}
-
-.form input, .form select, .form textarea{
-  width:100%;
-  padding:10px;
-  margin:8px 0;
-}
-
-.form button{
-  background:#004aad;
-  color:white;
-  padding:10px;
-  border:none;
-  width:100%;
-}
-
-/* Gallery */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-}
-
-.gallery img{
-  width:100%;
-  border-radius:6px;
-}
+/* ===== MARQUEE ===== */

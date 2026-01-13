@@ -98,7 +98,7 @@ onsubmit="return finalSubmit(event)">
 <!-- CAPTCHA -->
 <div class="captcha">
 Solve: <b id="capQ"></b>
-<input id="capAns" placeholder="Captcha Answer" required>
+<input type"number"  id="capAns" placeholder="Captcha Answer" required>
 </div>
 
 <button type="button" onclick="showPayment()">Submit & Pay Fees</button>
@@ -244,30 +244,8 @@ footer{
 
 <div class="form-box">
 
-<form id="admissionForm"
-action="https://formsubmit.co/rahulyadav79123@gmail.com"
-method="POST"
-onsubmit="return handleFinalSubmit(event)">
 
-<input type="hidden" name="_captcha" value="false">
 
-<input id="name" name="Student Name" placeholder="Student Name" required>
-<input id="father" name="Father Name" placeholder="Father Name" required>
-<input id="mobile" name="Mobile" placeholder="Mobile Number" required>
-<input id="email" name="Email" type="email" placeholder="Student Email" required>
-
-<select id="course" name="Course" required>
-<option value="">Select Course</option>
-<option>DCA</option>
-<option>ADCA</option>
-<option>Basic Computer</option>
-<option>MS Office</option>
-<option>Tally with GST</option>
-<option>Typing</option>
-<option>CCC</option>
-</select>
-
-<button type="button" onclick="showPayment()">Submit & Pay Fees</button>
 
 <div id="paymentBox">
   <h3>💳 Admission Fees Payment</h3>
@@ -304,4 +282,5 @@ onsubmit="return handleFinalSubmit(event)">
 <script src="admission.js"></script>
 </body>
 </html>
+
 

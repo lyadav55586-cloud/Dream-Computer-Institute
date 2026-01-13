@@ -95,11 +95,35 @@ onsubmit="return finalSubmit(event)">
 <label>Qualification Marksheet</label>
 <input type="file" name="Marksheet" accept=".pdf,image/*" required>
 
-<!-- CAPTCHA -->
-<div class="captcha">
-Solve: <b id="capQ"></b>
-<input type"number"  id="capAns" placeholder="Captcha Answer" required>
-</div>
+<script>
+/* ===== CAPTCHA START ===== */
+let capA, capB;
+
+function generateCaptcha(){
+  capA = Math.floor(Math.random()*9)+1;
+  capB = Math.floor(Math.random()*9)+1;
+  document.getElementById("capQ").innerText =
+    capA + " + " + capB + " = ?";
+}
+
+generateCaptcha();
+/* ===== CAPTCHA END ===== */
+  
+/* ===== CAPTCHA CODE (FINAL & WORKING) ===== */
+let capA = 0;
+let capB = 0;
+
+function generateCaptcha(){
+  capA = Math.floor(Math.random()*9) + 1;
+  capB = Math.floor(Math.random()*9) + 1;
+  document.getElementById("capQ").innerText =
+    capA + " + " + capB + " = ?";
+}
+
+// Page load par captcha banao
+window.onload = generateCaptcha;
+/* ===== CAPTCHA END ===== */
+</script>
 
 <button type="button" onclick="showPayment()">Submit & Pay Fees</button>
 
@@ -282,5 +306,6 @@ footer{
 <script src="admission.js"></script>
 </body>
 </html>
+
 
 

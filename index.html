@@ -6,23 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:'Segoe UI', sans-serif;
+  font-family:'Segoe UI',sans-serif;
   background:#f1f5f9;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
   padding:30px 15px;
   text-align:center;
 }
-header h1{margin:0;font-size:32px;}
-header p{margin-top:8px;opacity:0.9;}
 
-/* NAVBAR */
+/* 3D LOGO */
+.logo{
+  font-size:38px;
+  font-weight:900;
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 0 #111,
+    3px 3px 0 #222;
+}
+
+header p{opacity:.9;margin-top:8px}
+
+/* ===== NAV ===== */
 nav{
   background:#020617;
   padding:12px;
@@ -34,107 +45,107 @@ nav a{
   text-decoration:none;
   font-weight:600;
 }
-nav a:hover{color:#38bdf8;}
+nav a:hover{color:#38bdf8}
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   display:flex;
   flex-wrap:wrap;
+  gap:20px;
   justify-content:space-between;
   align-items:center;
   padding:30px;
 }
-.hero-text{max-width:520px;}
+.hero-text{max-width:520px}
 
-/* BUTTONS */
+/* BUTTON */
 .btn{
   display:inline-block;
-  padding:12px 22px;
+  padding:12px 24px;
   border-radius:30px;
   font-weight:bold;
-  margin:12px 10px 0 0;
+  margin-top:15px;
   text-decoration:none;
   color:white;
-  transition:0.3s;
+  transition:.3s;
 }
-.btn1{background:#2563eb;}
-.btn2{background:#22c55e;}
-.btn:hover{transform:scale(1.08);}
+.btn1{background:#2563eb}
+.btn2{background:#22c55e}
+.btn:hover{transform:scale(1.08)}
 
-/* PHOTOS */
+/* IMAGE */
 .round-photo{
   width:200px;
   height:200px;
   border-radius:50%;
   border:4px solid #2563eb;
   object-fit:cover;
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
-}
-.institute-photo{
-  width:100%;
-  max-width:520px;
-  border-radius:16px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.25);
-  margin-top:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,.3);
 }
 
-/* NOTICE BOARD */
+/* ===== MARQUEE ===== */
 .notice{
   background:#fde047;
   margin:20px;
   padding:15px;
   border-radius:14px;
+  font-weight:600;
 }
-.notice a{text-decoration:none;color:black;}
-.notice h2{margin-top:0;}
 
-/* CARD */
+/* ===== CARD ===== */
 .card{
   background:white;
   margin:20px;
   padding:22px;
   border-radius:18px;
-  box-shadow:0 12px 25px rgba(0,0,0,0.12);
+  box-shadow:0 12px 25px rgba(0,0,0,.12);
 }
 
-/* COURSE BOX */
-.course-box{
-  padding:12px;
+/* ===== COURSE ===== */
+.course{
+  padding:14px;
   background:#e0f2fe;
-  margin:8px 0;
-  border-radius:10px;
+  margin:10px 0;
+  border-radius:12px;
   cursor:pointer;
+  font-weight:700;
 }
-.course-box:hover{background:#bae6fd}
+.course:hover{background:#bae6fd}
 
-/* POPUP */
+/* ===== POPUP ===== */
 .popup{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,.6);
   justify-content:center;
   align-items:center;
+  z-index:999;
 }
 .popup-box{
   background:white;
   padding:25px;
   border-radius:16px;
-  width:300px;
+  width:90%;
+  max-width:420px;
+  animation:zoom .3s ease;
+}
+@keyframes zoom{
+  from{transform:scale(.6)}
+  to{transform:scale(1)}
 }
 .popup-box span{
   float:right;
+  font-size:22px;
   cursor:pointer;
-  font-size:20px;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   background:#020617;
   color:white;
   text-align:center;
   padding:15px;
-  margin-top:20px;
 }
 </style>
 </head>
@@ -142,7 +153,7 @@ footer{
 <body>
 
 <header>
-  <h1>Dream Computer Institute</h1>
+  <div class="logo">💻 Dream Computer Institute</div>
   <p>Modern Computer Education & Skill Development Center</p>
 </header>
 
@@ -154,36 +165,31 @@ footer{
   <a href="hindi.html">हिंदी</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <h2>Welcome to Dream Computer Institute</h2>
     <p>
-      Dream Computer Institute provides quality computer education
-      with practical training and certification.
+      Quality computer education with practical training,
+      job-oriented courses and government-useful skills.
     </p>
 
     <a href="admission.html" class="btn btn1">Online Admission</a>
-    <a onclick="openPopup('Pre Complete Course','Complete course with certificate')" class="btn btn2">Pre Complete Course</a>
+    <a href="#courses" class="btn btn2">View Courses</a>
   </div>
 
-  <div>
-    <img src="666666" class="round-photo">
-  </div>
+  <img src="666666" class="round-photo">
 </section>
 
-<!-- SUCHNA BOARD -->
 <section class="notice">
-  <h2>📢 Suchna Board</h2>
-  <marquee onclick="openPopup('Suchna Board','Admission Open | Demo Class Available')">
-    Admission Open | Free Demo Class | Certificate Provided | Click Here
-  </marquee>
+<marquee>
+📢 Admission Open | Free Demo Class | Govt & Private Job Useful Courses |
+Certificate Provided | Practical Training | Limited Seats Hurry Up |
+</marquee>
 </section>
 
-<!-- INSTITUTE -->
 <section class="card">
   <h2>Our Institute</h2>
-  <img src="666666" class="institute-photo">
+  <img src="666666" style="width:100%;max-width:520px;border-radius:16px">
   <p>
     <strong>Director:</strong> Rahul Yadav<br>
     <strong>Mobile:</strong> 7905971243<br>
@@ -191,41 +197,95 @@ footer{
   </p>
 </section>
 
-<!-- COURSES -->
-<section class="card">
-  <h2>Courses Offered</h2>
+<section class="card" id="courses">
+<h2>Courses Offered</h2>
 
-  <div class="course-box" onclick="openPopup('DCA','Duration: 6 Month | Fees: As per institute')">DCA</div>
-  <div class="course-box" onclick="openPopup('ADCA','Duration: 12 Month | Fees: As per institute')">ADCA</div>
-  <div class="course-box" onclick="openPopup('Tally','Tally with GST training')">Tally with GST</div>
-  <div class="course-box" onclick="openPopup('Typing','Hindi & English Typing')">Typing</div>
+<div class="course" onclick="showCourse('ADCA')">ADCA – Advanced Diploma</div>
+<div class="course" onclick="showCourse('DCA')">DCA – Diploma in Computer</div>
+<div class="course" onclick="showCourse('CCC')">CCC – Govt Course</div>
+<div class="course" onclick="showCourse('BCC')">BCC – Basic Computer</div>
+
 </section>
 
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <span onclick="closePopup()">✖</span>
-    <h3 id="ptitle"></h3>
-    <p id="ptext"></p>
+    <h3 id="ctitle"></h3>
+    <p id="cdata"></p>
   </div>
 </div>
 
 <footer>
-  © 2026 Dream Computer Institute | All Rights Reserved
+© 2026 Dream Computer Institute | All Rights Reserved
 </footer>
-  <script src="index.js"></scrit>
 
 <script>
-function openPopup(title,text){
- document.getElementById("popup").style.display="flex";
- document.getElementById("ptitle").innerText=title;
- document.getElementById("ptext").innerText=text;
+function showCourse(course){
+  let title="",data="";
+  if(course==="ADCA"){
+    title="ADCA – Advanced Diploma in Computer";
+    data=`
+<b>Duration:</b> 12 Months<br>
+<b>Fees:</b> ₹7200<br><br>
+<b>Chapters:</b><br>
+• Computer Fundamentals<br>
+• MS Word, Excel, PowerPoint<br>
+• Internet & Email<br>
+• Tally with GST<br>
+• Photoshop Basics<br><br>
+<b>Why ADCA?</b><br>
+Best for Office, Private Job, Business & Computer Teacher.
+`;
+  }
+  if(course==="DCA"){
+    title="DCA – Diploma in Computer";
+    data=`
+<b>Duration:</b> 6 Months<br>
+<b>Fees:</b> ₹3600<br><br>
+<b>Chapters:</b><br>
+• Computer Basics<br>
+• MS Office<br>
+• Internet & Printing<br><br>
+<b>Use:</b><br>
+Office work, Data entry, School/College use.
+`;
+  }
+  if(course==="CCC"){
+    title="CCC – Course on Computer Concepts";
+    data=`
+<b>Duration:</b> 3 Months<br>
+<b>Fees:</b> ₹3500<br><br>
+<b>Chapters:</b><br>
+• Computer Fundamentals<br>
+• Word / Excel<br>
+• Internet<br><br>
+<b>Use:</b><br>
+Government jobs & certificates.
+`;
+  }
+  if(course==="BCC"){
+    title="BCC – Basic Computer Course";
+    data=`
+<b>Duration:</b> 3 Months<br>
+<b>Fees:</b> ₹4000<br><br>
+<b>Chapters:</b><br>
+• Computer Basics<br>
+• Typing<br>
+• Internet<br><br>
+<b>Use:</b><br>
+Beginners & daily computer use.
+`;
+  }
+
+  document.getElementById("ctitle").innerHTML=title;
+  document.getElementById("cdata").innerHTML=data;
+  document.getElementById("popup").style.display="flex";
 }
 function closePopup(){
- document.getElementById("popup").style.display="none";
+  document.getElementById("popup").style.display="none";
 }
 </script>
 
 </body>
 </html>
-

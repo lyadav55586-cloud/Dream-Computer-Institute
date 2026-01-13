@@ -5,29 +5,31 @@
 <title>Online Admission | Dream Computer Institute</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- jsPDF CDN -->
+<!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-<link rel="stylesheet" href="">
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <style>
 body{
   margin:0;
-  font-family:'Segoe UI', sans-serif;
+  font-family:'Segoe UI',sans-serif;
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 header{
-  color:white;
+  color:#fff;
   text-align:center;
   padding:20px;
 }
 .form-box{
-  background:white;
-  max-width:460px;
+  max-width:420px;
+  background:#fff;
   margin:20px auto;
   padding:25px;
-  border-radius:20px;
-  box-shadow:0 15px 30px rgba(0,0,0,.3);
+  border-radius:18px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.3);
 }
 input,select,button{
   width:100%;
@@ -45,6 +47,7 @@ button{
 }
 button:disabled{
   background:#94a3b8;
+  cursor:not-allowed;
 }
 #paymentBox{
   display:none;
@@ -53,25 +56,53 @@ button:disabled{
 }
 #paymentBox img{
   width:220px;
-  margin:10px 0;
+  border-radius:14px;
+  margin:15px 0;
 }
-.captcha{
-  margin-top:15px;
-  text-align:left;
-}
-.captcha span{
-  display:inline-block;
-  background:#020617;
-  color:white;
-  padding:8px 14px;
-  border-radius:8px;
-  letter-spacing:3px;
+.fees{
+  color:#dc2626;
+  font-size:18px;
   font-weight:bold;
 }
-footer{
-  color:white;
+.upi{
+  font-size:14px;
+  margin:5px 0;
+}
+.note{
+  background:#e0f2fe;
+  padding:10px;
+  border-radius:10px;
+  font-size:14px;
+}
+.check{
+  text-align:left;
+  font-size:14px;
+}
+#successPopup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.popup-box{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
   text-align:center;
-  padding:15px;
+  animation:pop 0.4s ease;
+}
+@keyframes pop{
+  from{transform:scale(0.6);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+footer{
+  color:#fff;
+  text-align:center;
+  padding:10px;
+  font-size:14px;
 }
 </style>
 </head>
@@ -79,7 +110,7 @@ footer{
 <body>
 
 <header>
-  <h2>Online Admission</h2>
+  <h2>Online Admission Form</h2>
   <p>Dream Computer Institute</p>
 </header>
 
@@ -88,13 +119,14 @@ footer{
 <form id="admissionForm"
 action="https://formsubmit.co/rahulyadav79123@gmail.com"
 method="POST"
-onsubmit="return finalSubmit()">
+onsubmit="return handleFinalSubmit(event)">
 
 <input type="hidden" name="_captcha" value="false">
 
-<input type="text" id="name" name="Student Name" placeholder="Student Name" required>
-<input type="text" id="father" name="Father Name" placeholder="Father Name" required>
-<input type="text" id="mobile" name="Mobile Number" placeholder="Mobile Number" required>
+<input id="name" name="Student Name" placeholder="Student Name" required>
+<input id="father" name="Father Name" placeholder="Father Name" required>
+<input id="mobile" name="Mobile" placeholder="Mobile Number" required>
+<input id="email" name="Email" type="email" placeholder="Student Email" required>
 
 <select id="course" name="Course" required>
 <option value="">Select Course</option>
@@ -103,49 +135,37 @@ onsubmit="return finalSubmit()">
 <option>Basic Computer</option>
 <option>MS Office</option>
 <option>Tally with GST</option>
-<option>Typing (Hindi / English)</option>
+<option>Typing</option>
 <option>CCC</option>
-<option>O Level</option>
-<option>Internet & Email</option>
 </select>
 
-<button type="button" onclick="startPayment()">
-Submit & Pay Fees
-</button>
+<button type="button" onclick="showPayment()">Submit & Pay Fees</button>
 
-<!-- PAYMENT BOX -->
 <div id="paymentBox">
+  <h3>💳 Admission Fees Payment</h3>
+  <div class="fees">₹500 Only</div>
+  <div class="upi">UPI ID: rahulyadav79123@okicici</div>
 
-<h3>Admission Fees: ₹500</h3>
+  <img src="upi-qr.png" alt="UPI QR">
 
-<!-- 🔴 QR IMAGE PATH -->
-<img src="images/upi-qr.png" alt="UPI QR">
+  <div class="note">
+    Mobile me UPI app auto open hoga.<br>
+    Laptop se QR scan kare.
+  </div>
 
-<p>Mobile user: UPI app auto open<br>
-Laptop user: QR scan kare</p>
+  <input id="txn" name="Transaction ID"
+  placeholder="Transaction ID" oninput="checkPayment()" required>
 
-<input type="text" id="txn" name="Transaction ID"
-placeholder="Transaction ID" oninput="checkAll()">
+  <div class="check">
+    <input type="checkbox" id="paid" onclick="checkPayment()">
+    I confirm payment ₹500 done
+  </div>
 
-<label>
-<input type="checkbox" id="paid" onclick="checkAll()">
- I have paid ₹500
-</label>
-
-<!-- CAPTCHA -->
-<div class="captcha">
-<p>Security Check</p>
-<span id="captchaText"></span>
-<button type="button" onclick="generateCaptcha()">↻</button>
-<input type="text" id="captchaInput"
-placeholder="Enter captcha" oninput="checkAll()">
+  <button id="finalBtn" type="submit" disabled>
+    Final Submit & Download Slip
+  </button>
 </div>
 
-<button type="submit" id="finalBtn" disabled>
-Final Submit & Download Slip
-</button>
-
-</div>
 </form>
 </div>
 

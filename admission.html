@@ -8,6 +8,134 @@
 <!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+header{
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+.form-box{
+  max-width:460px;
+  background:#fff;
+  margin:20px auto;
+  padding:25px;
+  border-radius:18px;
+}
+input,select,button{
+  width:100%;
+  padding:11px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  background:#2563eb;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:disabled{background:#94a3b8}
+#paymentBox{display:none;text-align:center;margin-top:20px}
+#paymentBox img{width:220px;margin:15px 0}
+.captcha{background:#e0f2fe;padding:10px;border-radius:8px}
+footer{text-align:center;color:#fff;padding:10px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Online Admission Form</h2>
+<p>Dream Computer Institute</p>
+</header>
+
+<div class="form-box">
+<form id="admissionForm"
+action="https://formsubmit.co/rahulyadav79123@gmail.com"
+method="POST"
+enctype="multipart/form-data"
+onsubmit="return finalSubmit(event)">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input id="name" name="Student Name" placeholder="Student Name" required>
+<input id="father" name="Father Name" placeholder="Father Name" required>
+<input id="mobile" name="Mobile" placeholder="Mobile Number" required>
+<input id="email" type="email" name="Email" placeholder="Student Email" required>
+
+<input type="date" id="dob" name="Date of Birth" required>
+<input id="aadhar" name="Aadhar Number" placeholder="Aadhar Number" required>
+<input id="apaar" name="APAAR ID" placeholder="APAAR ID" required>
+
+<select id="qualification" name="Qualification" required>
+<option value="">Select Qualification</option>
+<option>8th Pass</option>
+<option>10th Pass</option>
+<option>12th Pass</option>
+<option>Graduate</option>
+</select>
+
+<select id="course" name="Course" required>
+<option value="">Select Course</option>
+<option>DCA</option>
+<option>ADCA</option>
+<option>CCC</option>
+<option>MS Office</option>
+<option>Tally</option>
+</select>
+
+<label>Passport Size Photo</label>
+<input type="file" name="Photo" accept="image/*" required>
+
+<label>Qualification Marksheet</label>
+<input type="file" name="Marksheet" accept=".pdf,image/*" required>
+
+<!-- CAPTCHA -->
+<div class="captcha">
+Solve: <b id="capQ"></b>
+<input id="capAns" placeholder="Captcha Answer" required>
+</div>
+
+<button type="button" onclick="showPayment()">Submit & Pay Fees</button>
+
+<div id="paymentBox">
+<h3>Admission Fees ₹500</h3>
+<p>UPI: rahulyadav79123@okicici</p>
+<img src="upi-qr.png">
+
+<input id="txn" name="Transaction ID" placeholder="Transaction ID" required>
+
+<label>
+<input type="checkbox" id="paid"> I confirm payment done
+</label>
+
+<button id="finalBtn" type="submit" disabled>
+Final Submit & Download Slip
+</button>
+</div>
+
+</form>
+</div>
+
+<footer>© 2026 Dream Computer Institute</footer>
+
+<script src="admission.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Admission | Dream Computer Institute</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -176,3 +304,4 @@ onsubmit="return handleFinalSubmit(event)">
 <script src="admission.js"></script>
 </body>
 </html>
+

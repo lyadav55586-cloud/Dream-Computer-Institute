@@ -1,182 +1,104 @@
-*{
-  box-sizing:border-box;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #111;
+  transition: 0.4s;
 }
 
-body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#f1f5f9;
-  color:#020617;
-  transition:0.4s;
+header {
+  background: linear-gradient(135deg,#1f1c2c,#928dab);
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-/* HEADER + LOGO */
-header{
-  background:linear-gradient(135deg,#020617,#0f172a);
-  color:white;
-  text-align:center;
-  padding:25px 10px;
+.logo3d {
+  width: 80px;
+  animation: rotate3d 5s infinite linear;
 }
 
-.logo{
-  font-size:34px;
-  font-weight:900;
-  color:#38bdf8;
-  text-shadow:
-    1px 1px 0 #000,
-    2px 2px 0 #111,
-    3px 3px 8px rgba(0,0,0,.6);
-  animation:float 3s ease-in-out infinite;
+@keyframes rotate3d {
+  from {transform: rotateY(0deg);}
+  to {transform: rotateY(360deg);}
 }
 
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-  100%{transform:translateY(0)}
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-/* NAV */
-nav{
-  background:#020617;
-  padding:12px;
-  text-align:center;
-}
-nav a{
-  color:white;
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:600;
-}
-nav a:hover{color:#38bdf8}
-
-/* BUTTONS */
-.btn{
-  display:inline-block;
-  padding:12px 22px;
-  border-radius:25px;
-  background:#2563eb;
-  color:white;
-  font-weight:bold;
-  text-decoration:none;
-  margin:10px 8px;
-  transition:0.3s;
-}
-.btn:hover{
-  transform:scale(1.08);
-  background:#1d4ed8;
+marquee {
+  background: black;
+  color: #0f0;
+  padding: 8px;
 }
 
-/* HERO */
-.hero{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  padding:25px;
-  gap:20px;
+.welcome {
+  text-align: center;
+  padding: 30px;
 }
 
-.hero-text{max-width:520px}
-
-/* DIRECTOR PHOTO */
-.director{
-  text-align:center;
-}
-.director img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:4px solid #2563eb;
-  object-fit:cover;
-}
-.director h4{
-  margin-top:8px;
+.btn, button {
+  padding: 10px 18px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 5px;
+  cursor: pointer;
 }
 
-/* MARQUEE */
-.notice{
-  background:#fde047;
-  padding:12px;
-  font-weight:bold;
-  margin:15px;
-  border-radius:12px;
+.director {
+  text-align: center;
+  padding: 20px;
 }
 
-/* CARD */
-.card{
-  background:white;
-  margin:20px;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+.director img {
+  width: 120px;
+  border-radius: 10px;
 }
 
-/* COURSES */
-.course-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+.courses {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 15px;
 }
 
-.course-box{
-  background:#e0f2fe;
-  padding:15px;
-  border-radius:14px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.course-box:hover{
-  background:#bae6fd;
-  transform:translateY(-5px);
-}
-.course-box h3{
-  margin:0;
+.course-box {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-/* POPUP */
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.65);
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-}
-.popup-box{
-  background:white;
-  padding:22px;
-  border-radius:16px;
-  width:90%;
-  max-width:420px;
-}
-.popup-box span{
-  float:right;
-  cursor:pointer;
-  font-size:20px;
+.course-box:hover {
+  transform: translateY(-5px);
 }
 
-/* SCROLL ANIMATION */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
+.whatsapp {
+  text-align: center;
+  padding: 30px;
 }
 
-/* DARK MODE */
-.dark{
-  background:#020617;
-  color:#e5e7eb;
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 15px;
 }
-.dark .card,
-.dark .course-box{
-  background:#0f172a;
-  color:#e5e7eb;
+
+/* NIGHT MODE */
+.dark {
+  background: #0d1117;
+  color: white;
 }
-.dark nav,
-.dark header{
-  background:#000;
+
+.dark .course-box {
+  background: #161b22;
 }

@@ -5,155 +5,23 @@
 <title>Dream Computer Institute</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#f1f5f9;
-}
+<!-- CSS -->
+<link rel="stylesheet" href="index-style.css">
 
-/* ===== HEADER ===== */
-header{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:white;
-  padding:30px 15px;
-  text-align:center;
-}
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#020617">
 
-/* 3D LOGO */
-.logo{
-  font-size:38px;
-  font-weight:900;
-  text-shadow:
-    1px 1px 0 #000,
-    2px 2px 0 #111,
-    3px 3px 0 #222;
-}
-
-header p{opacity:.9;margin-top:8px}
-
-/* ===== NAV ===== */
-nav{
-  background:#020617;
-  padding:12px;
-  text-align:center;
-}
-nav a{
-  color:white;
-  margin:0 12px;
-  text-decoration:none;
-  font-weight:600;
-}
-nav a:hover{color:#38bdf8}
-
-/* ===== HERO ===== */
-.hero{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:space-between;
-  align-items:center;
-  padding:30px;
-}
-.hero-text{max-width:520px}
-
-/* BUTTON */
-.btn{
-  display:inline-block;
-  padding:12px 24px;
-  border-radius:30px;
-  font-weight:bold;
-  margin-top:15px;
-  text-decoration:none;
-  color:white;
-  transition:.3s;
-}
-.btn1{background:#2563eb}
-.btn2{background:#22c55e}
-.btn:hover{transform:scale(1.08)}
-
-/* IMAGE */
-.round-photo{
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  border:4px solid #2563eb;
-  object-fit:cover;
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
-}
-
-/* ===== MARQUEE ===== */
-.notice{
-  background:#fde047;
-  margin:20px;
-  padding:15px;
-  border-radius:14px;
-  font-weight:600;
-}
-
-/* ===== CARD ===== */
-.card{
-  background:white;
-  margin:20px;
-  padding:22px;
-  border-radius:18px;
-  box-shadow:0 12px 25px rgba(0,0,0,.12);
-}
-
-/* ===== COURSE ===== */
-.course{
-  padding:14px;
-  background:#e0f2fe;
-  margin:10px 0;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:700;
-}
-.course:hover{background:#bae6fd}
-
-/* ===== POPUP ===== */
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-.popup-box{
-  background:white;
-  padding:25px;
-  border-radius:16px;
-  width:90%;
-  max-width:420px;
-  animation:zoom .3s ease;
-}
-@keyframes zoom{
-  from{transform:scale(.6)}
-  to{transform:scale(1)}
-}
-.popup-box span{
-  float:right;
-  font-size:22px;
-  cursor:pointer;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#020617;
-  color:white;
-  text-align:center;
-  padding:15px;
-}
-</style>
 </head>
-
 <body>
 
+<!-- 🌙 DARK MODE BUTTON -->
+<button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+<!-- 🔥 3D LOGO -->
 <header>
-  <div class="logo">💻 Dream Computer Institute</div>
+  <div class="logo-3d">DCI</div>
+  <h1>Dream Computer Institute</h1>
   <p>Modern Computer Education & Skill Development Center</p>
 </header>
 
@@ -165,31 +33,36 @@ footer{
   <a href="hindi.html">हिंदी</a>
 </nav>
 
-<section class="hero">
+<!-- 🎥 HERO -->
+<section class="hero reveal">
   <div class="hero-text">
     <h2>Welcome to Dream Computer Institute</h2>
     <p>
-      Quality computer education with practical training,
-      job-oriented courses and government-useful skills.
+      Quality computer education with practical training and certification.
     </p>
 
     <a href="admission.html" class="btn btn1">Online Admission</a>
     <a href="#courses" class="btn btn2">View Courses</a>
   </div>
 
-  <img src="t.jpg" class="round-photo">
+  <div>
+    <img src="666666" class="round-photo">
+    <div class="director-name">Rahul Yadav</div>
+  </div>
 </section>
 
-<section class="notice">
-<marquee>
-📢 Admission Open | Free Demo Class | Govt & Private Job Useful Courses |
-Certificate Provided | Practical Training | Limited Seats Hurry Up |
-</marquee>
-</section>
+<!-- 🟡 MARQUEE -->
+<div class="marquee">
+  <span>
+    🚀 Admission Open | 💻 Practical Training | 📜 Govt Certificate |
+    🎓 Job Oriented Courses | 📱 Learn Digital Skills Today
+  </span>
+</div>
 
-<section class="card">
+<!-- 🏫 INSTITUTE -->
+<section class="card reveal">
   <h2>Our Institute</h2>
-  <img src="ll.jpg" style="width:100%;max-width:520px;border-radius:16px">
+  <img src="666666" class="institute-photo">
   <p>
     <strong>Director:</strong> Rahul Yadav<br>
     <strong>Mobile:</strong> 7905971243<br>
@@ -197,98 +70,40 @@ Certificate Provided | Practical Training | Limited Seats Hurry Up |
   </p>
 </section>
 
-<section class="card" id="courses">
-<h2>Courses Offered</h2>
+<!-- 📚 COURSES -->
+<section class="card reveal" id="courses">
+  <h2>Courses Offered</h2>
 
-<div class="course" onclick="showCourse('ADCA')">ADCA – Advanced Diploma</div>
-<div class="course" onclick="showCourse('DCA')">DCA – Diploma in Computer</div>
-<div class="course" onclick="showCourse('CCC')">CCC – Govt Course</div>
-<div class="course" onclick="showCourse('BCC')">BCC – Basic Computer</div>
+  <div class="course-box" onclick="openPopup('ADCA','Duration: 12 Months | Fees: ₹7200\nBest for Office, Accounting & IT Jobs')">
+    ADCA
+  </div>
 
+  <div class="course-box" onclick="openPopup('DCA','Duration: 6 Months | Fees: ₹3600\nBest for Computer Basics & Govt Jobs')">
+    DCA
+  </div>
+
+  <div class="course-box" onclick="openPopup('CCC','Duration: 3 Months | Fees: ₹3500\nEssential for Govt Exams')">
+    CCC
+  </div>
+
+  <div class="course-box" onclick="openPopup('BCC','Duration: 3 Months | Fees: ₹4000\nPerfect for Beginners')">
+    BCC
+  </div>
 </section>
 
-<!-- POPUP -->
+<!-- 📌 POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <span onclick="closePopup()">✖</span>
-    <h3 id="ctitle"></h3>
-    <p id="cdata"></p>
+    <h3 id="ptitle"></h3>
+    <p id="ptext"></p>
   </div>
 </div>
 
 <footer>
-© 2026 Dream Computer Institute | All Rights Reserved
+  © 2026 Dream Computer Institute | All Rights Reserved
 </footer>
 
-<script>
-function showCourse(course){
-  let title="",data="";
-  if(course==="ADCA"){
-    title="ADCA – Advanced Diploma in Computer";
-    data=`
-<b>Duration:</b> 12 Months<br>
-<b>Fees:</b> ₹7200<br><br>
-<b>Chapters:</b><br>
-• Computer Fundamentals<br>
-• MS Word, Excel, PowerPoint<br>
-• Internet & Email<br>
-• Tally with GST<br>
-• Photoshop Basics<br><br>
-<b>Why ADCA?</b><br>
-Best for Office, Private Job, Business & Computer Teacher.
-`;
-  }
-  if(course==="DCA"){
-    title="DCA – Diploma in Computer";
-    data=`
-<b>Duration:</b> 6 Months<br>
-<b>Fees:</b> ₹3600<br><br>
-<b>Chapters:</b><br>
-• Computer Basics<br>
-• MS Office<br>
-• Internet & Printing<br><br>
-<b>Use:</b><br>
-Office work, Data entry, School/College use.
-`;
-  }
-  if(course==="CCC"){
-    title="CCC – Course on Computer Concepts";
-    data=`
-<b>Duration:</b> 3 Months<br>
-<b>Fees:</b> ₹3500<br><br>
-<b>Chapters:</b><br>
-• Computer Fundamentals<br>
-• Word / Excel<br>
-• Internet<br><br>
-<b>Use:</b><br>
-Government jobs & certificates.
-`;
-  }
-  if(course==="BCC"){
-    title="BCC – Basic Computer Course";
-    data=`
-<b>Duration:</b> 3 Months<br>
-<b>Fees:</b> ₹4000<br><br>
-<b>Chapters:</b><br>
-• Computer Basics<br>
-• Typing<br>
-• Internet<br><br>
-<b>Use:</b><br>
-Beginners & daily computer use.
-`;
-  }
-
-  document.getElementById("ctitle").innerHTML=title;
-  document.getElementById("cdata").innerHTML=data;
-  document.getElementById("popup").style.display="flex";
-}
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
-</script>
-  <link rel="stylesheet" href="style.css">
-
+<script src="index.js"></script>
 </body>
 </html>
-
-

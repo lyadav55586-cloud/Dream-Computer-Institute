@@ -1,72 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Computer Institute</title>
+
+<!-- CSS LINK -->
+<link rel="stylesheet" href="style.css">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
 <header>
-  <div class="logo">💻 Dream Computer Institute</div>
-  <p>Modern Computer Education Center</p>
+  <div class="logo-box">
+    <img src="logo.png" class="logo3d">
+    <h1>Dream Computer Institute</h1>
+    <p>Modern Computer Education Center</p>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="admission.html">Admission</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="certificate.html">Certificate</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="admission.html">Admission</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="certificate.html">Certificate</a>
-</nav>
+<marquee behavior="scroll" direction="left">
+🔥 ADCA – Advance Diploma in Computer Application |
+DCA – Diploma in Computer Application |
+CCC – Course on Computer Concepts |
+BCC – Basic Computer Course |
+Join Now – Practical Training | Govt & Private Job Ready
+</marquee>
 
-<section class="hero reveal">
-  <div class="hero-text">
-    <h2>Welcome</h2>
-    <p>Best computer education with practical training.</p>
-    <a href="admission.html" class="btn">Online Admission</a>
-    <button class="btn" onclick="toggleDark()">🌙 Night Mode</button>
-  </div>
+<section class="welcome">
+  <h2>Welcome</h2>
+  <p>Best computer education with practical training.</p>
 
-  <div class="director">
-    <img src="666666">
-    <h4>Rahul Yadav</h4>
-  </div>
+  <button onclick="toggleMode()">🌙 Night Mode</button>
+  <a class="btn" href="admission.html">Online Admission</a>
 </section>
 
-<div class="notice">
-  <marquee>
-    ADCA – Advance Diploma in Computer Application |
-    DCA – Diploma in Computer Application |
-    CCC – Course on Computer Concept |
-    BCC – Basic Computer Course |
-    MS Office | Tally with GST | Typing (Hindi/English)
-  </marquee>
-</div>
+<section class="director">
+  <img src="director.jpg">
+  <h3>Rahul Yadav</h3>
+  <p>Director</p>
+</section>
 
-<section class="card reveal">
+<section class="courses">
   <h2>Our Courses</h2>
-  <div class="course-grid">
-    <div class="course-box"
-      onclick="openPopup('ADCA – ₹7200',
-      'Duration: 12 Month\nChapters: Computer Fundamentals, MS Office, Internet, Tally, DTP\nBest for Govt + Private Jobs')">
-      <h3>ADCA</h3>
-    </div>
 
-    <div class="course-box"
-      onclick="openPopup('DCA – ₹3600',
-      'Duration: 6 Month\nChapters: Basics, MS Word, Excel, Internet\nBest for beginners')">
-      <h3>DCA</h3>
-    </div>
+  <div class="course-box">
+    <h3>ADCA</h3>
+    <p>Duration: 12 Months</p>
+    <p>Why Best: Office + Govt job preparation</p>
+    <button onclick="openCourse()">View Details</button>
+  </div>
 
-    <div class="course-box"
-      onclick="openPopup('CCC – ₹3500',
-      'Govt recognized course\nImportant for govt jobs')">
-      <h3>CCC</h3>
-    </div>
+  <div class="course-box">
+    <h3>DCA</h3>
+    <p>Duration: 6 Months</p>
+    <p>Why Best: Computer Operator jobs</p>
+    <button onclick="openCourse()">View Details</button>
+  </div>
 
-    <div class="course-box"
-      onclick="openPopup('BCC – ₹4000',
-      'Basic computer literacy course')">
-      <h3>BCC</h3>
-    </div>
+  <div class="course-box">
+    <h3>CCC</h3>
+    <p>Duration: 3 Months</p>
+    <p>Why Best: Govt required certificate</p>
+    <button onclick="openCourse()">View Details</button>
+  </div>
+
+  <div class="course-box">
+    <h3>BCC</h3>
+    <p>Duration: 3 Months</p>
+    <p>Why Best: Basic computer knowledge</p>
+    <button onclick="openCourse()">View Details</button>
   </div>
 </section>
 
-<div class="popup" id="popup">
-  <div class="popup-box">
-    <span onclick="closePopup()">✖</span>
-    <h3 id="ptitle"></h3>
-    <p id="ptext"></p>
-  </div>
-</div>
+<section class="whatsapp">
+  <h2>Join WhatsApp Group</h2>
+  <a class="btn" href="44444">Join Now</a>
+</section>
+
+<footer>
+  <p>📞 Mobile: SAME AS BEFORE</p>
+  <p>📍 Address: SAME AS BEFORE</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

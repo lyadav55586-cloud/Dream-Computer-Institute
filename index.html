@@ -59,6 +59,7 @@ nav a:hover{color:#38bdf8;}
 }
 .btn1{background:#2563eb;}
 .btn2{background:#22c55e;}
+.btn3{background:#25D366;}
 .btn:hover{transform:scale(1.08);}
 
 /* PHOTOS */
@@ -69,6 +70,11 @@ nav a:hover{color:#38bdf8;}
   border:4px solid #2563eb;
   object-fit:cover;
   box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.photo-name{
+  text-align:center;
+  margin-top:10px;
+  font-weight:bold;
 }
 .institute-photo{
   width:100%;
@@ -99,11 +105,12 @@ nav a:hover{color:#38bdf8;}
 
 /* COURSE BOX */
 .course-box{
-  padding:12px;
+  padding:14px;
   background:#e0f2fe;
-  margin:8px 0;
+  margin:10px 0;
   border-radius:10px;
   cursor:pointer;
+  font-weight:600;
 }
 .course-box:hover{background:#bae6fd}
 
@@ -120,7 +127,7 @@ nav a:hover{color:#38bdf8;}
   background:white;
   padding:25px;
   border-radius:16px;
-  width:300px;
+  width:320px;
 }
 .popup-box span{
   float:right;
@@ -164,19 +171,20 @@ footer{
     </p>
 
     <a href="admission.html" class="btn btn1">Online Admission</a>
-    <a onclick="openPopup('Pre Complete Course','Complete course with certificate')" class="btn btn2">Pre Complete Course</a>
+    <a class="btn btn3" href="44444">Join WhatsApp Group</a>
   </div>
 
   <div>
     <img src="666666" class="round-photo">
+    <div class="photo-name">Rahul Yadav</div>
   </div>
 </section>
 
 <!-- SUCHNA BOARD -->
 <section class="notice">
   <h2>📢 Suchna Board</h2>
-  <marquee onclick="openPopup('Suchna Board','Admission Open | Demo Class Available')">
-    Admission Open | Free Demo Class | Certificate Provided | Click Here
+  <marquee onclick="openPopup('Suchna Board','Admission Open | Free Demo Class | Certificate Provided')">
+    Admission Open | Free Demo Class | Govt & Private Job Courses | Click Here
   </marquee>
 </section>
 
@@ -195,10 +203,19 @@ footer{
 <section class="card">
   <h2>Courses Offered</h2>
 
-  <div class="course-box" onclick="openPopup('DCA','Duration: 6 Month | Fees: As per institute')">DCA</div>
-  <div class="course-box" onclick="openPopup('ADCA','Duration: 12 Month | Fees: As per institute')">ADCA</div>
-  <div class="course-box" onclick="openPopup('Tally','Tally with GST training')">Tally with GST</div>
-  <div class="course-box" onclick="openPopup('Typing','Hindi & English Typing')">Typing</div>
+  <div class="course-box" onclick="openPopup('ADCA','Advance Diploma in Computer Application | Duration: 12 Months | Best for Office & Govt Jobs')">ADCA – Advance Diploma</div>
+
+  <div class="course-box" onclick="openPopup('DCA','Diploma in Computer Application | Duration: 6 Months')">DCA</div>
+
+  <div class="course-box" onclick="openPopup('CCC','Course on Computer Concepts | Govt Required Course')">CCC</div>
+
+  <div class="course-box" onclick="openPopup('BCC','Basic Computer Course | For Beginners')">BCC</div>
+
+  <div class="course-box" onclick="openPopup('Tally','Tally with GST | Accounting & Billing')">Tally with GST</div>
+
+  <div class="course-box" onclick="openPopup('Typing','Hindi & English Typing Course')">Typing (Hindi / English)</div>
+
+  <div class="course-box" onclick="openPopup('Web Design','HTML, CSS, JavaScript Basics')">Web Designing</div>
 </section>
 
 <!-- POPUP -->

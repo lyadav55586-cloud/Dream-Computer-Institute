@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dream Computer Institute</title>
-  
-    <link rel="stylesheet" herf="style.css">
-
-
-
 
 <style>
 body{
@@ -20,105 +17,90 @@ body{
 header{
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
-  background color:black
-  padding:35px 15px;
-  font-size:20px;
+  padding:25px 10px;
   text-align:center;
 }
-header h1{margin:0;font-size:50px;}
-header p{margin-top:8px;opacity:0.9;}
+header h1{margin:0;font-size:32px;}
+header p{margin-top:6px;opacity:0.9;font-size:14px;}
 
 /* NAVBAR */
 nav{
   background:#020617;
-  padding:12px;
-  text-align:center;
+  padding:10px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 nav a{
   color:white;
-  margin:0 12px;
+  margin:6px;
   text-decoration:none;
   font-weight:600;
+  font-size:14px;
 }
-nav a:hover{color:#38bdf8;}
 
 /* HERO */
 .hero{
   display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
+  flex-direction:column;
   align-items:center;
-  padding:30px;
+  text-align:center;
+  padding:20px;
 }
-.hero-text{max-width:520px;}
+.hero-text{max-width:100%;}
 
 /* BUTTONS */
 .btn{
   display:inline-block;
-  padding:12px 22px;
-  border-radius:30px;
+  padding:10px 18px;
+  border-radius:25px;
   font-weight:bold;
-  margin:12px 10px 0 0;
+  margin:8px;
   text-decoration:none;
   color:white;
-  transition:0.3s;
 }
 .btn1{background:#2563eb;}
-.btn2{background:#22c55e;}
 .btn3{background:#25D366;}
-.btn:hover{transform:scale(1.08);}
 
 /* PHOTOS */
 .round-photo{
-  width:200px;
-  height:200px;
+  width:160px;
+  height:160px;
   border-radius:50%;
   border:4px solid #2563eb;
   object-fit:cover;
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
-}
-.photo-name{
-  text-align:center;
-  margin-top:10px;
-  font-weight:bold;
-}
-.institute-photo{
-  width:100%;
-  max-width:520px;
-  border-radius:16px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.25);
   margin-top:15px;
 }
+.photo-name{
+  font-weight:bold;
+  margin-top:5px;
+}
 
-/* NOTICE BOARD */
+/* NOTICE */
 .notice{
   background:#fde047;
-  margin:20px;
-  padding:15px;
-  border-radius:14px;
+  margin:15px;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
 }
-.notice a{text-decoration:none;color:black;}
-.notice h2{margin-top:0;}
 
 /* CARD */
 .card{
   background:white;
-  margin:20px;
-  padding:22px;
-  border-radius:18px;
-  box-shadow:0 12px 25px rgba(0,0,0,0.12);
+  margin:15px;
+  padding:18px;
+  border-radius:16px;
 }
 
-/* COURSE BOX */
+/* COURSES */
 .course-box{
-  padding:14px;
+  padding:12px;
   background:#e0f2fe;
   margin:10px 0;
   border-radius:10px;
-  cursor:pointer;
   font-weight:600;
 }
-.course-box:hover{background:#bae6fd}
 
 /* POPUP */
 .popup{
@@ -131,14 +113,10 @@ nav a:hover{color:#38bdf8;}
 }
 .popup-box{
   background:white;
-  padding:25px;
-  border-radius:16px;
-  width:320px;
-}
-.popup-box span{
-  float:right;
-  cursor:pointer;
-  font-size:20px;
+  padding:20px;
+  border-radius:14px;
+  width:90%;
+  max-width:320px;
 }
 
 /* FOOTER */
@@ -146,40 +124,36 @@ footer{
   background:#020617;
   color:white;
   text-align:center;
-  padding:15px;
-  margin-top:20px;
+  padding:12px;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
-  
 
 <header>
- <h1 class="logo-3d">Dream Computer Institute</h1>
-  <marquee<p>Modern Computer Education & Skill Development Center</p></marquee>
+  <h1>Dream Computer Institute</h1>
+  <marquee><p>Modern Computer Education & Skill Development Center</p></marquee>
 </header>
 
-
+<nav>
   <a href="index.html" class="btn btn1">Home</a>
-  <a href="admission.html" class="btn btn1"> Admission</a>
-  <a href="certificate.html" class="btn btn1">cerificate</a>
-  <a href="gallery.html" class="btn btn1">gallery</a>
+  <a href="admission.html" class="btn btn1">Admission</a>
+  <a href="certificate.html" class="btn btn1">Certificate</a>
+  <a href="gallery.html" class="btn btn1">Gallery</a>
   <a href="hindi.html" class="btn btn1">हिंदी</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <h2>Welcome to Dream Computer Institute</h2>
-    <p>
-      Dream Computer Institute provides quality computer education
-      with practical training and certification.
-    </p>
-   
+    <p>Quality computer education with practical training.</p>
 
     <a href="admission.html" class="btn btn1">Online Admission</a>
-    <a class="btn btn3" href=" https://chat.whatsapp.com/HU1kecRkLI7GtsOQoRx5J9">Join WhatsApp Group</a>
+    <a class="btn btn3" href="https://chat.whatsapp.com/HU1kecRkLI7GtsOQoRx5J9">
+      WhatsApp Group
+    </a>
   </div>
 
   <div>
@@ -188,18 +162,13 @@ footer{
   </div>
 </section>
 
-<!-- SUCHNA BOARD -->
 <section class="notice">
-  <h2>📢 Suchna Board</h2>
-  <marquee onclick="openPopup('Suchna Board','Admission Open | Free Demo Class | Certificate Provided')">
-    Admission Open | Free Demo Class | Govt & Private Job Courses | Click Here
-  </marquee>
+  <h2>📢 सूचना बोर्ड</h2>
+  <marquee>Admission Open | Free Demo Class | Certificate Provided</marquee>
 </section>
 
-<!-- INSTITUTE -->
 <section class="card">
   <h2>Our Institute</h2>
-  <img src="ll.jpg" class="institute-photo">
   <p>
     <strong>Director:</strong> Rahul Yadav<br>
     <strong>Mobile:</strong> 7905971243<br>
@@ -207,88 +176,21 @@ footer{
   </p>
 </section>
 
-<!-- COURSES -->
-<section class="card">
-  <h2>Courses Offered</h2>
 <section class="card">
   <h2>Courses Offered</h2>
 
-  <div class="course-box" onclick="openPopup(
-  'ADCA – Advance Diploma in Computer Application',
-  'Duration: 12 Months | Fees: ₹7200\n\nChapters:\n• Fundamentals of Computer\n• Windows & Internet\n• MS Word\n• MS Excel\n• MS PowerPoint\n• Tally with GST\n• HTML & Web Basics\n• Photoshop\n• Corel Draw\n• Typing (Hindi & English)\n\nWhy ADCA?\nBest course for Office Work, Private Jobs, Govt Jobs & Computer Operator field.'
-  )">ADCA – Advance Diploma in Computer Application</div>
-
-  <div class="course-box" onclick="openPopup(
-  'DCA – Diploma in Computer Application',
-  'Duration: 6 Months | Fees: ₹3600\n\nChapters:\n• Introduction of Computer\n• Windows Basics\n• MS Word\n• MS Excel\n• MS PowerPoint\n• Internet & Email\n• Basic Typing\n\nWhy DCA?\nPerfect for beginners and basic computer job roles.'
-  )">DCA – Diploma in Computer Application</div>
-
-  <div class="course-box" onclick="openPopup(
-  'CCC – Course on Computer Concepts',
-  'Duration: 3 Months | Fees: ₹3500\n\nChapters:\n• Computer Fundamentals\n• Windows OS\n• MS Word 2010\n• MS Excel 2010\n• MS PowerPoint\n• Internet & Email\n• Digital Payment\n\nWhy CCC?\nRequired for many Govt Jobs and Certificates.'
-  )">CCC – Course on Computer Concepts</div>
-
-  <div class="course-box" onclick="openPopup(
-  'BCC – Basic Computer Course',
-  'Duration: 3 Months | Fees: ₹4000\n\nChapters:\n• Computer Basics\n• Windows\n• MS Word\n• MS Paint\n• Internet Basics\n\nWhy BCC?\nBest for students with zero computer knowledge.'
-  )">BCC – Basic Computer Course</div>
-
-  <div class="course-box" onclick="openPopup(
-  'Tally with GST',
-  'Duration: 3 Months | Fees: ₹5000\n\nChapters:\n• Accounting Basics\n• Company Creation\n• Ledger & Voucher Entry\n• GST Billing\n• Balance Sheet\n• Inventory\n\nWhy Tally?\nEssential for Accounting, Office & Business jobs.'
-  )">Tally with GST</div>
-
-  <div class="course-box" onclick="openPopup(
-  'Typing Course',
-  'Duration: 2 Months | Fees: ₹2000\n\nChapters:\n• Hindi Typing\n• English Typing\n• Speed Practice\n• Accuracy Test\n\nWhy Typing?\nImportant for Clerk, Data Entry & Govt Exams.'
-  )">Typing (Hindi / English)</div>
-
-  <div class="course-box" onclick="openPopup(
-  'Web Designing',
-  'Duration: 4 Months | Fees: ₹6000\n\nChapters:\n• HTML\n• CSS\n• JavaScript Basics\n• Website Design\n• Hosting Basics\n\nWhy Web Design?\nGood for Freelancing, Online Work & IT Field.'
-  )">Web Designing</div>
+  <div class="course-box">ADCA – 12 Months</div>
+  <div class="course-box">DCA – 6 Months</div>
+  <div class="course-box">CCC – 3 Months</div>
+  <div class="course-box">Tally with GST</div>
+  <div class="course-box">Typing Course</div>
+  <div class="course-box">Web Designing</div>
 
 </section>
-
-
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-  <div class="popup-box">
-    <span onclick="closePopup()">✖</span>
-    <h3 id="ptitle"></h3>
-    <p id="ptext"></p>
-  </div>
-</div>
 
 <footer>
   © 2026 Dream Computer Institute | All Rights Reserved
 </footer>
 
-<script>
-function openPopup(title,text){
- document.getElementById("popup").style.display="flex";
- document.getElementById("ptitle").innerText=title;
- document.getElementById("ptext").innerText=text;
-}
-function closePopup(){
- document.getElementById("popup").style.display="none";
-}
-</script>
- 
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

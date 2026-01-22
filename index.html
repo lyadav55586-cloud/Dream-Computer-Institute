@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- MOBILE VIEWPORT FIX -->
+<!-- Mobile zoom fix -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Dream Computer Institute</title>
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 body{
@@ -20,6 +22,7 @@ header{
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
   padding:35px 15px;
+  font-size:20px;
   text-align:center;
 }
 header h1{margin:0;font-size:40px;}
@@ -38,6 +41,7 @@ nav a{
   font-weight:600;
   display:inline-block;
 }
+nav a:hover{color:#38bdf8;}
 
 /* HERO */
 .hero{
@@ -56,7 +60,7 @@ nav a{
   padding:12px 22px;
   border-radius:30px;
   font-weight:bold;
-  margin:10px 0;
+  margin:10px 5px;
   text-decoration:none;
   color:white;
 }
@@ -70,6 +74,14 @@ nav a{
   border-radius:50%;
   border:4px solid #2563eb;
   object-fit:cover;
+}
+.photo-name{text-align:center;font-weight:bold;margin-top:10px;}
+
+.institute-photo{
+  width:100%;
+  max-width:520px;
+  border-radius:16px;
+  margin-top:15px;
 }
 
 /* NOTICE */
@@ -89,7 +101,7 @@ nav a{
   box-shadow:0 12px 25px rgba(0,0,0,0.12);
 }
 
-/* COURSE BOX */
+/* COURSE */
 .course-box{
   padding:14px;
   background:#e0f2fe;
@@ -98,6 +110,7 @@ nav a{
   cursor:pointer;
   font-weight:600;
 }
+.course-box:hover{background:#bae6fd}
 
 /* POPUP */
 .popup{
@@ -141,67 +154,74 @@ footer{
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="admission.html">Admission</a>
-  <a href="certificate.html">Certificate</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="hindi.html">हिंदी</a>
+  <a href="index.html" class="btn btn1">Home</a>
+  <a href="admission.html" class="btn btn1">Admission</a>
+  <a href="certificate.html" class="btn btn1">Certificate</a>
+  <a href="gallery.html" class="btn btn1">Gallery</a>
+  <a href="hindi.html" class="btn btn1">हिंदी</a>
 </nav>
 
 <section class="hero">
   <div class="hero-text">
     <h2>Welcome to Dream Computer Institute</h2>
-    <p>Quality computer education with practical training and certification.</p>
-    <a href="admission.html" class="btn btn1">Online Admission</a><br>
+    <p>Dream Computer Institute provides quality computer education with practical training and certification.</p>
+    <a href="admission.html" class="btn btn1">Online Admission</a>
     <a href="https://chat.whatsapp.com/HU1kecRkLI7GtsOQoRx5J9" class="btn btn3">Join WhatsApp Group</a>
   </div>
 
-  <img src="vv.jpg" class="round-photo">
+  <div>
+    <img src="vv.jpg" class="round-photo">
+    <div class="photo-name">Rahul Yadav</div>
+  </div>
 </section>
 
 <section class="notice">
-  <marquee onclick="openPopup('सूचना','Admission Open | Free Demo Class | Certificate Provided')">
-    Admission Open | Free Demo Class | Govt & Private Job Courses
+  <h2>📢 Suchna Board</h2>
+  <marquee onclick="openPopup('Suchna Board','Admission Open | Free Demo Class | Certificate Provided')">
+    Admission Open | Free Demo Class | Govt & Private Job Courses | Click Here
   </marquee>
+</section>
+
+<section class="card">
+  <h2>Our Institute</h2>
+  <img src="ll.jpg" class="institute-photo">
+  <p>
+    <strong>Director:</strong> Rahul Yadav<br>
+    <strong>Mobile:</strong> 7905971243<br>
+    <strong>Address:</strong> Bishkohar Road, Gainsari, Balrampur
+  </p>
 </section>
 
 <section class="card">
 <h2>Courses Offered</h2>
 
-<div class="course-box" onclick="openPopup(
-'ADCA – Advance Diploma',
-'Duration: 12 Months\nFees: ₹7200\nEligibility: 10th Pass\n\nSubjects:\n• Computer Basics\n• MS Office\n• Tally with GST\n• Web Basics\n• Typing\n\nCertificate: Yes'
-)">ADCA – Advance Diploma in Computer Application</div>
+<div class="course-box" onclick="openPopup('ADCA – Advance Diploma in Computer Application',
+'Duration: 12 Months\nFees: ₹7200\n\nSubjects:\n• Computer Fundamentals\n• MS Office\n• Tally with GST\n• Web Basics\n• Typing\n\nCertificate: Yes')">
+ADCA – Advance Diploma in Computer Application</div>
 
-<div class="course-box" onclick="openPopup(
-'DCA – Diploma',
-'Duration: 6 Months\nFees: ₹3600\n\nSubjects:\n• Computer Basics\n• MS Office\n• Internet\n\nCertificate: Yes'
-)">DCA – Diploma in Computer Application</div>
+<div class="course-box" onclick="openPopup('DCA – Diploma in Computer Application',
+'Duration: 6 Months\nFees: ₹3600\n\nSubjects:\n• Computer Basics\n• MS Office\n• Internet\n\nCertificate: Yes')">
+DCA – Diploma in Computer Application</div>
 
-<div class="course-box" onclick="openPopup(
-'CCC Course',
-'Duration: 3 Months\nFees: ₹3500\n\nSubjects:\n• Computer Fundamentals\n• MS Office\n• Internet\n\nCertificate: Govt Valid'
-)">CCC – Course on Computer Concepts</div>
+<div class="course-box" onclick="openPopup('CCC – Course on Computer Concepts',
+'Duration: 3 Months\nFees: ₹3500\n\nSubjects:\n• Computer Fundamentals\n• MS Office\n• Internet\n\nCertificate: Govt Valid')">
+CCC – Course on Computer Concepts</div>
 
-<div class="course-box" onclick="openPopup(
-'BCC Course',
-'Duration: 3 Months\nFees: ₹4000\n\nSubjects:\n• Basic Computer\n• Typing\n• Internet\n\nCertificate: Yes'
-)">BCC – Basic Computer Course</div>
+<div class="course-box" onclick="openPopup('BCC – Basic Computer Course',
+'Duration: 3 Months\nFees: ₹4000\n\nSubjects:\n• Basic Computer\n• Typing\n• Internet\n\nCertificate: Yes')">
+BCC – Basic Computer Course</div>
 
-<div class="course-box" onclick="openPopup(
-'Tally with GST',
-'Duration: 3 Months\nFees: ₹5000\n\nSubjects:\n• Accounting\n• GST Billing\n• Practical Training\n\nCertificate: Yes'
-)">Tally with GST</div>
+<div class="course-box" onclick="openPopup('Tally with GST',
+'Duration: 3 Months\nFees: ₹5000\n\nSubjects:\n• Accounting\n• GST Billing\n\nCertificate: Yes')">
+Tally with GST</div>
 
-<div class="course-box" onclick="openPopup(
-'Typing Course',
-'Duration: 2 Months\nFees: ₹2000\n\nHindi & English Typing\nCertificate: Yes'
-)">Typing (Hindi / English)</div>
+<div class="course-box" onclick="openPopup('Typing Course',
+'Duration: 2 Months\nFees: ₹2000\n\nHindi & English Typing\nCertificate: Yes')">
+Typing (Hindi / English)</div>
 
-<div class="course-box" onclick="openPopup(
-'Web Designing',
-'Duration: 4 Months\nFees: ₹6000\n\nSubjects:\n• HTML\n• CSS\n• JavaScript\n\nCertificate: Yes'
-)">Web Designing</div>
+<div class="course-box" onclick="openPopup('Web Designing',
+'Duration: 4 Months\nFees: ₹6000\n\nSubjects:\n• HTML\n• CSS\n• JavaScript\n\nCertificate: Yes')">
+Web Designing</div>
 
 </section>
 
